@@ -20,7 +20,12 @@
                     <th scope="col">Description</th>
                     <th scope="col">Important</th>
                     <th scope="col">User</th>
+                    
+                    {% if task.datecompleted %}
                     <th scope="col">fecha</th>
+                        
+                    {% endif %}
+                        
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +47,12 @@
                     <td>{{ task.description }}</td>
                     <td>{{ task.important }}</td>
                     <td>{{ task.user }}</td>
+                    
+                    {% if task.datecompleted %}
+                        
                     <td>{{task.datecompleted}}</td>
+                    {% endif %}
+                        
                 </tr>
                 {% endfor %}
             </tbody>
