@@ -21,7 +21,7 @@
                     <th scope="col">Important</th>
                     <th scope="col">User</th>
                     
-                    {% if task.datecompleted %}
+                    {% if task.datecompleted != none %}
                     <th scope="col">fecha</th>
                         
                     {% endif %}
@@ -48,7 +48,7 @@
                     <td>{{ task.important }}</td>
                     <td>{{ task.user }}</td>
                     
-                    {% if task.datecompleted %}
+                    {% if task.datecompleted != none %}
                         
                     <td>{{task.datecompleted}}</td>
                     {% endif %}
