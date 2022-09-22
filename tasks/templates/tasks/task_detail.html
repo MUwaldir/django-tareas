@@ -1,0 +1,33 @@
+{% extends 'tasks/base.html' %} {% block content %}
+<main class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <div class="card-header w-100">
+          <h1 class="text-secondary">{{task.title}}</h1>
+          {{ error }}
+        </div>
+        <div class="card-body">
+          <div>
+            <form action="" method="post">
+              {% csrf_token %} {{ form.as_p }}
+              <button class="btn btn-primary">Update</button>
+            </form>
+          </div>
+          <div class="d-flex mt-3 justify-content-between">
+            <form action="/task_detail/{{task.id}}/complete" method="post">
+              {% csrf_token %}
+              <button class="btn btn-secondary">Completada</button>
+            </form>
+            <form action="/task_detail/{{task.id}}/delete" method="post">
+              {% csrf_token %}
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock content %}

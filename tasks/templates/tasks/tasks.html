@@ -1,0 +1,55 @@
+{% extends 'tasks/base.html' %}
+
+
+{% block content %}
+
+
+<h1>TASKS: {{ request.user }}</h1>
+    
+
+    
+
+
+
+    <div class="table-responsive">
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Important</th>
+                    <th scope="col">User</th>
+                    <th scope="col">fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in tasks %}
+                <tr class="">
+                    <td scope="row">{{ task.id }}</td>
+                    
+                    {% if task.important %}
+                    
+                    <td><strong><a href="/task_detail/{{ task.id }}"">{{ task.title }}</a></strong></td>
+                        {% else %}
+                        
+                    <td><a href="/task_detail/{{ task.id }}"">
+                        {{ task.title }}
+                        
+                    </a></td>
+                    {% endif %}
+                        
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.important }}</td>
+                    <td>{{ task.user }}</td>
+                    <td>{{task.datecompleted}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+
+    
+{% endblock content %}
+    
